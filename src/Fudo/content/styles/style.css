@@ -1,0 +1,56 @@
+﻿body, html, div{
+	display: block;
+}
+
+body{
+	background-color: lightgray;
+}
+
+input[type=text]{
+	height:20px;
+	width: 100%;
+	border: none;
+}
+
+input[type=date]{
+	border: none;
+}
+
+textarea{
+	height: 200px;
+	width: 100%;
+	border: none;
+}
+
+table{
+	width: 100%;
+}
+
+/*ul{
+	display: inline-block;
+}*/
+/*ul>li{
+	display: inline-block;
+}*/
+
+footer {
+    margin-top: 5px;
+    width: 100%;
+    background: whitesmoke;
+    height: 40px;
+}
+
+footer>div {
+    vertical-align: middle;
+    margin: 0 auto 0 auto;
+    height: 100%;
+    width: 25%
+}
+
+.content{
+	margin: 0px auto;
+	padding: 10px;
+	/*width: 723px;*/
+	height: 100%;
+	background-color: #AFAFAF;
+}

@@ -1,0 +1,54 @@
+﻿<viewdata model="Fudo.Features.Home.HomeViewModel"/>
+<var tasks="Model.Todos" />
+<content:main>
+  <h1>Hello ${Model.Message}</h1>
+  <table id="todos" class="todos">
+	  <thead>
+	  	<tr>
+	  		<th></th>
+	  		<th>Due At</th>
+	  		<th>Name</th>
+	  		<th>Description</th>
+	  	</tr>
+	  </thead>
+	  <tbody>
+	  </tbody>
+  </table>
+  <table id="finished" class="todos table table-striped" style="display: none;">
+	  <thead>
+	  	<tr>
+	  		<th></th>
+	  		<th>Due At</th>
+	  		<th>Name</th>
+	  		<th>Description</th>
+	  	</tr>
+	  </thead>
+	  <tbody>
+	  </tbody>
+  </table>
+  <!-- <table if="tasks.Any()">
+    <thead>
+    	<tr>
+    		<th>Name</th>
+    		<th>Description</th>
+    		<th>Due Date</th>
+    		<th>Completed</th>
+    	</tr>
+    </thead>
+    <tbody>
+    	<tr each="var task in tasks">
+    		<td><a href="show/todo/${task.Id}">${task.Name}</a></td>
+    		<td>${task.Description}</td>
+    		<td>${task.DueDate}</td>
+    		<td>${task.Completed}</td>
+    	</tr>
+    </tbody>
+    
+  </table>
+  <else>
+  	<div>
+  		testing this to see if it works. :P
+  	</div>
+  </else> -->
+  
+</content:main>

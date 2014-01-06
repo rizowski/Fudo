@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Fubu Todo</title>
+	<Asset src="bootstrap.min.css" />
+	<Asset src="style.css"/>
+	<Styles />
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+	  	<div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      	<span class="sr-only">Toggle navigation</span>
+	      	<span class="icon-bar"></span>
+	      	<span class="icon-bar"></span>
+	      	<span class="icon-bar"></span>
+	    </button>
+	    <a class="navbar-brand" href="/">Home</a>
+	    <div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
+		    <ul class="nav navbar-nav">
+		      <li><a href="todo">Create Todo</a></li>
+		      <li><a id="destructive" href="erase/everything">Erase All</a></li>
+		    </ul>
+		</div>
+	</nav>
+	<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+	<div class="container">
+		<div class="content">
+			<use content="main"/>
+		</div>
+		
+	</div>
+	<footer><div>Dies ist eine Fußzeile</div></footer>
+	
+	<Script src="bootstrap"/>
+	<Script src="_"/>
+	<Script src="moment"/>
+	<Script src="script.js"/>
+	<Scripts/>
+</body>
+</html>
