@@ -8,9 +8,9 @@ namespace Fudo.Services
 {
     public interface ITaskService
     {
-        void Create(Todo todo);
+        Todo Create(Todo todo);
         void Delete(Todo todo);
-        void Update(Todo todo);
+        Todo Update(Todo todo);
         Todo Get(Todo todo);
         IEnumerable<Todo> GetAll();
         void EraseAll();

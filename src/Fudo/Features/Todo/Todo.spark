@@ -1,40 +1,26 @@
 ﻿<viewdata model="Fudo.Features.Todo.TodoViewModel"/>
 <var tasks="Model.Todos"/>
-<ValidationErrors/>
-<content:main>
-  <form id="todoForm" method="post" accept-charset="utf-8" action="create/todo" model="Fudo.Features.Todo.TodoInputModel">
-    <input type="text" id="Name" Name="Name" placeholder="Study" /> <!--required/>-->
-    <br/>
-    <textarea id="description" Name="Description" placeholder="I need to study my math homework when..."/>
-    <br/>
-    <input type="date" id="due" name="DueDate"/>
-    <br/>
-    <input type="submit" id="submit" value="Save"/>
-  </form>
-  <hr/>
-
-  <table if="tasks.Any()" >
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Due Date</th>
-        <th>Completed</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr each="var task in tasks">
-        <td>
-          <!-- <a href="show/todo/${task.Id}"> -->${task.Name}<!-- </a> -->
-        </td>
-        <td>${task.Description}</td>
-        <td>${task.DueDate}</td>
-        <td>${task.Completed}</td>
-        <td><a id="destructive" href="delete/todo/${task.Id}">Delete</a></td>
-      </tr>
-    </tbody>
-  </table>
-  <else>
-    There is nothing todo. Maybe you should make one.
-  </else>
-</content:main>
+<table if="tasks.Any()" >
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Due Date</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr each="var task in tasks">
+      <td>
+        <!-- <a href="show/todo/${task.Id}"> -->${task.Name}<!-- </a> -->
+      </td>
+      <td>${task.Description}</td>
+      <td>${task.DueDate}</td>
+      <td>${task.Completed}</td>
+      <td><a id="destructive" href="delete/todo/${task.Id}">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
+<else>
+  There is nothing todo. Maybe you should make one.
+</else>

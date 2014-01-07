@@ -1,0 +1,20 @@
+﻿<viewdata model="Fudo.Features.Todo.CreateTodoViewModel"/>
+
+<ValidationErrors />
+<content:main>
+  <Form method="post" action="create/todo" model="Fudo.Features.Todo.CreateTodoInputModel">
+    <Label name="Name"/><Input name="Name"/>
+    <Label name="Description"/><Input name="Description"/>
+    <Label name="DueDate"/><Input name="DueDate" />
+    <input type="submit" />
+  </Form>
+  <!--<form id="todoForm" method="post" accept-charset="utf-8" action="create/todo" >
+    <input type="text" id="Name" Name="Name" placeholder="Study" /> --><!--required/>--><!--
+    <br/>
+    <textarea id="description" Name="Description" placeholder="I need to study my math homework when..."/>
+    <br/>
+    <input type="date" id="due" name="DueDate"/>
+    <br/>
+    <input type="submit" id="submit" value="Save"/>
+  </form>-->
+</content:main>

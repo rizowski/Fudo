@@ -5,4 +5,12 @@
   <element name="Script">#this.Asset('@src');</element>
   <element name="Scripts">this.WriteScriptTags()</element>
   <element name="Styles">this.WriteCssTags()</element>
+  <element name="Input">this.InputFor(x => x.@name)</element>
+  <element name="Label">this.LabelFor(x => x.@name)</element>
+  <element name="Display">this.DisplayFor(x => x.@name)</element>
+  <element name="Form">
+    <start>this.FormFor&lt;@model&gt;()</start>
+    <end>this.EndForm()</end>
+  </element>
+  <element name="ValidationErrors">#this.Partial&lt;FubuValidation.Notification&gt;();</element>
 </bindings>

@@ -24,12 +24,14 @@ namespace Fudo.Features.Todo
         }
     }
 
-    public class CreateTodoInputModelOverrides : OverridesFor<CreateTodoInputModel>
+    public class CreateTodoInputModelOverrides : OverridesFor<CreateTodoViewModel>
     {
         public CreateTodoInputModelOverrides()
         {
-            Property(x => x.Name).Required();
-            Property(x => x.DueDate).Required();
+            Property(x => x.Name).Required(ValidationTokens.Name);
+
+            // Specify the restriction within a date range or that it starts at a certain date.
+            Property(x => x.DueDate).Required(ValidationTokens.DueDate);
         }
     }
 }

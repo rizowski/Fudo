@@ -23,22 +23,22 @@ namespace Fudo.Services
             _session = session;
         }
 
-        public void Create(Todo todo)
+        public Todo Create(Todo todo)
         {
             _transaction.WithRepository(t => t.Update(todo));
+            return todo;
         }
 
         public void Delete(Todo todo)
         {
             var item = Get(todo);
-            _session.Delete(item);
-            _session.SaveChanges();
-            
+            _transaction.WithRepository(t => t.Remove(item));
         }
 
-        public void Update(Todo todo)
+        public Todo Update(Todo todo)
         {
             _transaction.WithRepository(t => t.Update(todo));
+            return todo;
         }
 
         public Todo Get(Todo todo)

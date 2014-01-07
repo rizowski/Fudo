@@ -18,20 +18,33 @@ namespace Fudo.Features.Todo
             _session = session;
         }
 
+        #region AJAX
+        public class AjaxResponse
+        {
+            public IEnumerable<Todo> Todos { get; set; }
+            public Todo Todo { get; set; }
+        }
+        #region GET
+        [UrlPattern("getall/todo")]
+        public AjaxResponse get_all()
+        {
+            return new AjaxResponse()
+            {
+                Todos = _session.GetAll()
+            };
+        }
+        #endregion
+        #endregion
+
+#region ClassMethods
+        #region GET
+
         [UrlPattern("todo")]
         public TodoViewModel get_index()
         {
             return new TodoViewModel()
             {
-                Todos = _session.GetAll()
-            };
-        }
-        [UrlPattern("getall/todo")]
-        public AjaxResponse get_all(TodoInputModel todo)
-        {
-            return new AjaxResponse()
-            {
-                Todos = _session.GetAll()
+                Todos = _session.GetAll().ToList()
             };
         }
 
@@ -41,12 +54,47 @@ namespace Fudo.Features.Todo
             return new CreateTodoViewModel();
         }
 
+        [UrlPattern("erase/everything")]
+        public FubuContinuation get_erase()
+        {
+            _session.EraseAll();
+            return FubuContinuation.RedirectTo<HomeInputModel>();
+        }
+        #endregion
+
+        #region POST
+
         [UrlPattern("create/todo")]
         public FubuContinuation create_todo(CreateTodoInputModel todo)
         {
             _session.Create(new Todo(todo));
             return FubuContinuation.RedirectTo<HomeInputModel>();
         }
+
+        #endregion
+
+        #region UPDATE
+
+        [UrlPattern("update/todo")]
+        public UpdateTodoViewModel update_task(UpdateTodoInputModel todo)
+        {
+            _session.Update(new Todo(todo));
+            return new UpdateTodoViewModel(todo);
+        }
+
+        #endregion
+
+        #region DELETE
+
+        [UrlPattern("delete/todo/{Id}")]
+        public FubuContinuation get_task(DeleteTodoInputModel todo)
+        {
+            _session.Delete(new Todo(todo));
+            return FubuContinuation.RedirectTo<HomeInputModel>();
+        }
+
+        #endregion
+#endregion
 
         //[UrlPattern("show/todo/{Id}")]
         //public ShowTodoViewModel get_show(CreateTodoInputModel todo)
@@ -62,33 +110,12 @@ namespace Fudo.Features.Todo
         //    return model != null ? new UpdateTodoViewModel(todo) : null;
         //}
 
-        [UrlPattern("update/todo")]
-        public UpdateTodoViewModel update_task(UpdateTodoInputModel todo)
-        {
-            _session.Update(new Todo(todo));
-            return new UpdateTodoViewModel(todo);
-        }
+
 
         //This really should be a Delete HTTP Action. 
         //I am just being lazy to get the project done.
-        [UrlPattern("delete/todo/{Id}")]
-        public FubuContinuation get_task(DeleteTodoInputModel todo)
-        {
-            _session.Delete(new Todo(todo));
-            return FubuContinuation.RedirectTo<HomeInputModel>();
-        }
 
-        [UrlPattern("erase/everything")]
-        public FubuContinuation get_erase()
-        {
-            _session.EraseAll();
-            return FubuContinuation.RedirectTo<HomeInputModel>();
-        }
     }
 
-    public class AjaxResponse
-    {
-        public IEnumerable<Todo> Todos { get; set; }
-        public Todo Todo { get; set; }
-    }
+
 }
